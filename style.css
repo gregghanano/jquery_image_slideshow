@@ -24,9 +24,9 @@ button {
 .prev {
   left: 5px;
 }*/
-.slideData-hidden{
+.hidden{
   display:none;
 }
-.slideData-shown{
+.shown{
   display:inline-block;
 }

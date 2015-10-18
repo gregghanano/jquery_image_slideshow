@@ -27,14 +27,14 @@ $(document).ready(function(){
       var newUrl = url + slideShowData.slides[i].image.imageUrl;
       var summary = slideShowData.slides[i].body;
       if(i === 0){
-        $('.slides').append("<div class='slideData-shown'>"+
+        $('.slides').append("<div class='slideData shown'>"+
           "<h3>"+title+"</h3>"+
           "<img src="+newUrl+">"+
           summary +
           "</div>"
         );
       } else {
-        $('.slides').append("<div class='slideData-hidden'>"+
+        $('.slides').append("<div class='slideData hidden'>"+
           "<h3>"+title+"</h3>"+
           "<img src="+newUrl+">"+
           summary +

@@ -1,6 +1,6 @@
 $('.nextButton').on('click', function(e){
   console.log('next button!');
-  var currentActiveImage = $(".slideData-shown");
+  var currentActiveImage = $(".shown");
   var nextActiveImage = currentActiveImage.next();
   console.log(nextActiveImage.length);
 
@@ -10,22 +10,22 @@ $('.nextButton').on('click', function(e){
     console.log(nextActiveImage);
   }
 
-  currentActiveImage.removeClass("slideData-shown").addClass("slideData-hidden").css("z-index", -10);
-  nextActiveImage.addClass("slideData-shown").removeClass("slideData-hidden").css("z-index", 20);
+  currentActiveImage.removeClass("shown").addClass("hidden").css("z-index", -10);
+  nextActiveImage.addClass("shown").removeClass("hidden").css("z-index", 20);
   $(".slides").not([currentActiveImage, nextActiveImage]).css("z-index", 1);
 
   e.preventDefault();
 });
 $('.prevButton').on('click', function(e){
-  var currentActiveImage = $(".slideData-shown");
+  var currentActiveImage = $(".shown");
   var nextActiveImage = currentActiveImage.prev();
 
   if(nextActiveImage.length===0){
   	nextActiveImage = $(".slides").last();
   }
 
-  currentActiveImage.removeClass("slideData-shown").addClass("slideData-hidden").css("z-index", -10);
-  nextActiveImage.addClass("slideData-shown").removeClass("slideData-hidden").css("z-index", 20);
+  currentActiveImage.removeClass("shown").addClass("hidden").css("z-index", -10);
+  nextActiveImage.addClass("shown").removeClass("hidden").css("z-index", 20);
   $(".slides").not([currentActiveImage, nextActiveImage]).css("z-index", 1);
 
   e.preventDefault();

@@ -21,17 +21,26 @@ $(document).ready(function(){
       "<h1>"+pageTitle+"</h1>"+
       "<h4>By "+author+" | "+summary+"</h4>"
     );
-    var url = 'http://www.healthline.com/';
+    var url = 'http://www.healthline.com';
     for(var i = 0; i < slideShowData.slides.length; i++){
       var title = slideShowData.slides[i].title;
       var newUrl = url + slideShowData.slides[i].image.imageUrl;
       var summary = slideShowData.slides[i].body;
-      $('.slides').append("<div class='slideData'>"+
-        "<h3>"+title+"</h3>"+
-        "<img src="+newUrl+">"+
-        summary +
-        "</div>"
-      );
+      if(i === 0){
+        $('.slides').append("<div class='slideData-shown'>"+
+          "<h3>"+title+"</h3>"+
+          "<img src="+newUrl+">"+
+          summary +
+          "</div>"
+        );
+      } else {
+        $('.slides').append("<div class='slideData-hidden'>"+
+          "<h3>"+title+"</h3>"+
+          "<img src="+newUrl+">"+
+          summary +
+          "</div>"
+        );
+      }
     }
   })
   .fail( function(xhr, textStatus, errorThrown){

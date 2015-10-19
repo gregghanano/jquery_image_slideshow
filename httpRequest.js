@@ -12,11 +12,9 @@ $(document).ready(function(){
   })
   .done(function(data){
     var slideShowData = data.data[0];
-    console.log(slideShowData);
     var summary = slideShowData.summary;
     var pageTitle = slideShowData.title;
     var author = slideShowData.authfull[0];
-    console.log(pageTitle, summary);
     $('#articleSection').html(
       "<h1>"+pageTitle+"</h1>"+
       "<h4>By "+author+" | "+summary+"</h4>"

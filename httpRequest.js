@@ -12,34 +12,46 @@ $(document).ready(function(){
   })
   .done(function(data){
     var slideShowData = data.data[0];
-    var summary = slideShowData.summary;
+    var articleSummary = slideShowData.summary;
     var pageTitle = slideShowData.title;
     var author = slideShowData.authfull[0];
+    articleData.articleSummary = articleSummary;
+    articleData.pageTitle = pageTitle;
+    articleData.author = author;
     $('#articleSection').html(
       "<h1>"+pageTitle+"</h1>"+
-      "<h4>By "+author+" | "+summary+"</h4>"
+      "<h4>By "+author+" | "+articleSummary+"</h4>"
     );
     var url = 'http://www.healthline.com';
+    articleData.slides = [];
     for(var i = 0; i < slideShowData.slides.length; i++){
       var title = slideShowData.slides[i].title;
       var newUrl = url + slideShowData.slides[i].image.imageUrl;
-      var summary = slideShowData.slides[i].body;
+      var slideSummary = slideShowData.slides[i].body;
+      var slideIndex = i;
+      var slideArr = [];
+      slideArr.push(title);
+      slideArr.push(newUrl);
+      slideArr.push(slideSummary);
+      slideArr.push(slideIndex);
       if(i === 0){
         $('.slides').append("<div class='slideData shown'>"+
           "<h3>"+title+"</h3>"+
           "<img src="+newUrl+">"+
-          summary +
+          slideSummary +
           "</div>"
         );
       } else {
         $('.slides').append("<div class='slideData hidden'>"+
           "<h3>"+title+"</h3>"+
           "<img src="+newUrl+">"+
-          summary +
+          slideSummary +
           "</div>"
         );
       }
+      articleData.slides.push(slideArr);
     }
+    console.log(articleData);
   })
   .fail( function(xhr, textStatus, errorThrown){
     console.log('fail!!');

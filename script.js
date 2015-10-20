@@ -30,3 +30,65 @@ $('.prevButton').on('click', function(e){
 
   e.preventDefault();
 });
+
+function sortArticle(array, index){
+  var result = array.sort(function(a, b) {
+    return a[index] > b[index] ? 1 : -1;
+  });
+  return result;
+}
+
+$('.filter-button').on('click', function(e){
+  $('.slides').html('');
+  if(document.getElementById('default').checked){
+    var testArray = articleData.slides;
+    var newArticle = sortArticle(testArray, 3);
+    for(var i = 0; i < newArticle.length; i++){
+      var title = newArticle[i][0];
+      var newUrl = newArticle[i][1];
+      var slideSummary = newArticle[i][2];
+      var slideIndex = newArticle[i][3];
+      if(i === 0){
+        $('.slides').append("<div class='slideData shown'>"+
+          "<h3>"+title+"</h3>"+
+          "<img src="+newUrl+">"+
+          slideSummary +
+          "</div>"
+        );
+      } else {
+        $('.slides').append("<div class='slideData hidden'>"+
+          "<h3>"+title+"</h3>"+
+          "<img src="+newUrl+">"+
+          slideSummary +
+          "</div>"
+        );
+      }
+    }
+  }
+  else if(document.getElementById('alpha').checked){
+    var testArray = articleData.slides;
+    var newArticle = sortArticle(testArray, 0);
+    for(var i = 0; i < newArticle.length; i++){
+      var title = newArticle[i][0];
+      var newUrl = newArticle[i][1];
+      var slideSummary = newArticle[i][2];
+      var slideIndex = newArticle[i][3];
+      if(i === 0){
+        $('.slides').append("<div class='slideData shown'>"+
+          "<h3>"+title+"</h3>"+
+          "<img src="+newUrl+">"+
+          slideSummary +
+          "</div>"
+        );
+      } else {
+        $('.slides').append("<div class='slideData hidden'>"+
+          "<h3>"+title+"</h3>"+
+          "<img src="+newUrl+">"+
+          slideSummary +
+          "</div>"
+        );
+      }
+    }
+  }
+  e.preventDefault();
+});

@@ -5,3 +5,10 @@
 .shown{
   display:inline-block;
 }
+
+.filter-section{
+  border:1px solid black;
+  display:inline-block;
+  float:right;
+  padding:10px;
+}

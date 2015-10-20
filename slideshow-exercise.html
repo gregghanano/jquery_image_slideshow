@@ -3,6 +3,26 @@
 <head>
   <script type="text/javascript">
     var articleData={};
+    var renderImages = function(array, startIndex, stopIndex){
+      $('.slides').html('');
+      for(var i = startIndex; i < stopIndex; i++){
+        if(i === startIndex){
+          $('.slides').append("<div class='slideData shown text-center'>"+
+            "<h3>"+array[i][0]+"</h3>"+
+            "<img src="+array[i][1]+">"+
+            array[i][2] +
+            "</div>"
+          );
+        } else {
+          $('.slides').append("<div class='slideData hidden text-center'>"+
+            "<h3>"+array[i][0]+"</h3>"+
+            "<img src="+array[i][1]+">"+
+            array[i][2] +
+            "</div>"
+          );
+        }
+      };
+    }
   </script>
   <link rel='stylesheet' type='text/css' href='style.css'>
   <!-- Latest compiled and minified CSS -->

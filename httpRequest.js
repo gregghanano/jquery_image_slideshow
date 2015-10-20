@@ -34,28 +34,29 @@ $(document).ready(function(){
       slideArr.push(newUrl);
       slideArr.push(slideSummary);
       slideArr.push(slideIndex);
-      if(i === 0){
-        $('.slides').append("<div class='slideData shown text-center'>"+
-          "<h3>"+title+"</h3>"+
-          "<img src="+newUrl+">"+
-          slideSummary +
-          "</div>"
-        );
-      } else {
-        $('.slides').append("<div class='slideData hidden text-center'>"+
-          "<h3>"+title+"</h3>"+
-          "<img src="+newUrl+">"+
-          slideSummary +
-          "</div>"
-        );
-      }
+      // if(i === 0){
+      //   $('.slides').append("<div class='slideData shown text-center'>"+
+      //     "<h3>"+title+"</h3>"+
+      //     "<img src="+newUrl+">"+
+      //     slideSummary +
+      //     "</div>"
+      //   );
+      // } else {
+      //   $('.slides').append("<div class='slideData hidden text-center'>"+
+      //     "<h3>"+title+"</h3>"+
+      //     "<img src="+newUrl+">"+
+      //     slideSummary +
+      //     "</div>"
+      //   );
+      // }
       articleData.slides.push(slideArr);
     }
-    console.log(articleData);
+    renderImages(articleData.slides, 0, 2);
   })
   .fail( function(xhr, textStatus, errorThrown){
     console.log('fail!!');
     console.log(xhr.responseText);
     console.log(textStatus);
   });
+
 });

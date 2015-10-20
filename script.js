@@ -1,5 +1,4 @@
-var currentIndex = 0;
-
+var startingIndex = 0;
 $('.nextButton').on('click', function(e){
   //user event tracking section
   var track = $('<img id="track-img">');
@@ -12,15 +11,14 @@ $('.nextButton').on('click', function(e){
 
   if(nextActiveImage.length===0){
   	nextActiveImage = $(".slides .slideData").first();
+    startingIndex= -1;
   }
 
-  currentActiveImage.removeClass("shown").addClass("hidden").css("z-index", -10);
-  nextActiveImage.addClass("shown").removeClass("hidden").css("z-index", 20);
-  $(".slides").not([currentActiveImage, nextActiveImage]).css("z-index", 1);
+  startingIndex++;
+  endingIndex = startingIndex+2;
+  renderImages(articleData.slides, startingIndex, endingIndex);
 
   e.preventDefault();
-  currentIndex++;
-  console.log(currentIndex);
 });
 $('.prevButton').on('click', function(e){
   //user event tracking section
@@ -34,11 +32,12 @@ $('.prevButton').on('click', function(e){
 
   if(nextActiveImage.length===0){
   	nextActiveImage = $(".slides .slideData").last();
+    startingIndex=articleData.slides.length;
   }
 
-  currentActiveImage.removeClass("shown").addClass("hidden").css("z-index", -10);
-  nextActiveImage.addClass("shown").removeClass("hidden").css("z-index", 20);
-  $(".slides").not([currentActiveImage, nextActiveImage]).css("z-index", 1);
+  startingIndex--;
+  endingIndex = startingIndex + 2;
+  renderImages(articleData.slides, startingIndex, endingIndex);
 
   e.preventDefault();
 });
@@ -52,55 +51,17 @@ function sortArticle(array, index){
 
 $('.filter-button').on('click', function(e){
   $('.slides').html('');
+  startingIndex = 0;
   if(document.getElementById('default').checked){
     var testArray = articleData.slides;
     var newArticle = sortArticle(testArray, 3);
-    for(var i = 0; i < newArticle.length; i++){
-      var title = newArticle[i][0];
-      var newUrl = newArticle[i][1];
-      var slideSummary = newArticle[i][2];
-      var slideIndex = newArticle[i][3];
-      if(i === 0){
-        $('.slides').append("<div class='slideData shown text-center'>"+
-          "<h3>"+title+"</h3>"+
-          "<img src="+newUrl+">"+
-          slideSummary +
-          "</div>"
-        );
-      } else {
-        $('.slides').append("<div class='slideData hidden text-center'>"+
-          "<h3>"+title+"</h3>"+
-          "<img src="+newUrl+">"+
-          slideSummary +
-          "</div>"
-        );
-      }
-    }
+    renderImages(newArticle, 0, 2);
   }
   else if(document.getElementById('alpha').checked){
+    startIndex = 0;
     var testArray = articleData.slides;
     var newArticle = sortArticle(testArray, 0);
-    for(var i = 0; i < newArticle.length; i++){
-      var title = newArticle[i][0];
-      var newUrl = newArticle[i][1];
-      var slideSummary = newArticle[i][2];
-      var slideIndex = newArticle[i][3];
-      if(i === 0){
-        $('.slides').append("<div class='slideData shown text-center'>"+
-          "<h3>"+title+"</h3>"+
-          "<img src="+newUrl+">"+
-          slideSummary +
-          "</div>"
-        );
-      } else {
-        $('.slides').append("<div class='slideData hidden text-center'>"+
-          "<h3>"+title+"</h3>"+
-          "<img src="+newUrl+">"+
-          slideSummary +
-          "</div>"
-        );
-      }
-    }
+    renderImages(newArticle, 0, 2);
   }
   e.preventDefault();
 });

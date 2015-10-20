@@ -1,6 +1,12 @@
 var currentIndex = 0;
 
 $('.nextButton').on('click', function(e){
+  //user event tracking section
+  var track = $('<img id="track-img">');
+  track.attr('src', 'http://www.healthline.com/images/clear.gif');
+  track.attr('alt', "next click");
+  $('.image-tracker').append(track);
+  //--end--
   var currentActiveImage = $(".shown");
   var nextActiveImage = currentActiveImage.next();
 
@@ -17,6 +23,12 @@ $('.nextButton').on('click', function(e){
   console.log(currentIndex);
 });
 $('.prevButton').on('click', function(e){
+  //user event tracking section
+  var track = $('<img id="track-img">');
+  track.attr('src', 'http://www.healthline.com/images/clear.gif');
+  track.attr('alt', "previous click");
+  $('.image-tracker').append(track);
+  //--end--
   var currentActiveImage = $(".shown");
   var nextActiveImage = currentActiveImage.prev();
 

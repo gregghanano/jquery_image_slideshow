@@ -1,5 +1,7 @@
 # jquery image slideshow
 
+My tasks:
+
 1. Use HTML, CSS and JavaScript to build an image slideshow
 2. Do not use any third party slideshow, image or photo gallery plugins
 3. You may use a framework like jQuery or AngularJS

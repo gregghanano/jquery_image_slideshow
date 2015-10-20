@@ -11,4 +11,14 @@
   display:inline-block;
   float:right;
   padding:10px;
+  position:relative;
+  margin-right:10%;
+}
+.slideshow{
+  display:inline-block;
+  width:600px;
+  height:100%;
+  margin-left:20%;
+  border:1px solid black;
+  padding:5px;
 }

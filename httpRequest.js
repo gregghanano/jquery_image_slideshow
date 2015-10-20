@@ -35,14 +35,14 @@ $(document).ready(function(){
       slideArr.push(slideSummary);
       slideArr.push(slideIndex);
       if(i === 0){
-        $('.slides').append("<div class='slideData shown'>"+
+        $('.slides').append("<div class='slideData shown text-center'>"+
           "<h3>"+title+"</h3>"+
           "<img src="+newUrl+">"+
           slideSummary +
           "</div>"
         );
       } else {
-        $('.slides').append("<div class='slideData hidden'>"+
+        $('.slides').append("<div class='slideData hidden text-center'>"+
           "<h3>"+title+"</h3>"+
           "<img src="+newUrl+">"+
           slideSummary +

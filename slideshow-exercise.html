@@ -2,6 +2,7 @@
 <html>
 <head>
   <script type="text/javascript">
+  //Global Variables and Functions
     var articleData={};
     var renderImages = function(array, startIndex, stopIndex){
       $('.slides').html('');
@@ -32,31 +33,32 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 </head>
 <body>
+
 <!-- example of HTML structure -->
 <div class='container-fluid'>
-<div id="articleSection">
-</div>
-<div class='filter-section'>
-  <h4>Filter the Pictures</h4>
-  <form id='filter-form'>
-    <input type='radio' id='default' name='default-alpha' checked> Default
-    <input type='radio' id='alpha' name='default-alpha'> Alpha </br>
-    <button class='btn btn-default filter-button'>Filter</button>
-  </form>
-</div>
-<div class="slideshow">
-  <button class="prevButton btn btn-default col-xs-6">Previous</button>
-  <button class="nextButton btn btn-default col-xs-6">Next</button>
-  <div class="slideShowBox">
-    <div class='slides'>
+  <div id="articleSection">
+  </div>
+  <div class='filter-section'>
+    <h4>Filter the Pictures</h4>
+    <form id='filter-form'>
+      <input type='radio' id='default' name='default-alpha' checked> Default
+      <input type='radio' id='alpha' name='default-alpha'> Alpha </br>
+      <button class='btn btn-default filter-button'>Filter</button>
+    </form>
+  </div>
+  <div class="slideshow">
+    <button class="prevButton btn btn-default col-xs-6">Previous</button>
+    <button class="nextButton btn btn-default col-xs-6">Next</button>
+    <div class="slideShowBox">
+      <div class='slides'>
+      </div>
     </div>
   </div>
-</div>
-<div class='image-tracker'>
-</div>
+  <div class='image-tracker'>
+  </div>
 </div>
 
-
+<!--Script files -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src='httpRequest.js'></script>
 <!-- Latest compiled and minified JavaScript -->

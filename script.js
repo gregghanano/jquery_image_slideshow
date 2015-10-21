@@ -6,6 +6,7 @@ $('.nextButton').on('click', function(e){
   track.attr('alt', "next click");
   $('.image-tracker').append(track);
   //--end--
+
   var currentActiveImage = $(".shown");
   var nextActiveImage = currentActiveImage.next();
 
@@ -27,6 +28,7 @@ $('.prevButton').on('click', function(e){
   track.attr('alt', "previous click");
   $('.image-tracker').append(track);
   //--end--
+  
   var currentActiveImage = $(".shown");
   var nextActiveImage = currentActiveImage.prev();
 

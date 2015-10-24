@@ -70,8 +70,9 @@ function downloadJSAtOnload() {
   element.src = "script.js";
   document.body.appendChild(element);
 }
+
 if (window.addEventListener){
-  window.addEventListener("load", downloadJSAtOnload, false);
+    window.addEventListener("load", downloadJSAtOnload, false);
 } else if (window.attachEvent){
   window.attachEvent("onload", downloadJSAtOnload);
 } else {
